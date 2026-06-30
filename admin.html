@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Admin · Fallou's African Hair Braiding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bone:    #FAF8F5;
+  --white:   #FFFFFF;
+  --blush:   #E8C9B8;
+  --rose:    #C4856A;
+  --mocha:   #8B5E52;
+  --ink:     #1A1614;
+  --char:    #2D2420;
+  --mid:     #7A6860;
+  --light:   #F0EAE6;
+  --line:    rgba(26,22,20,0.1);
+  --gold:    #C9963C;
+  --good:    #5C8A6B;
+  --bad:     #C2493E;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--light);color:var(--ink);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer}
+input,select,textarea{font-family:inherit}
+
+/* ───────── LOGIN ───────── */
+.login-screen{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(196,133,106,0.12), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(232,201,184,0.18), transparent 45%),
+    var(--bone);
+  padding:1.5rem;
+}
+.login-card{
+  width:100%;max-width:380px;background:var(--white);
+  border:1px solid var(--line);border-radius:24px;
+  padding:3rem 2.5rem;text-align:center;
+  box-shadow:0 30px 60px -20px rgba(26,22,20,0.15);
+}
+.login-mark{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:1.4rem;margin-bottom:0.3rem}
+.login-sub{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:2.2rem}
+.login-card input{
+  width:100%;padding:0.95rem 1.1rem;border:1.5px solid var(--line);border-radius:12px;
+  font-size:0.95rem;text-align:center;letter-spacing:0.05em;background:var(--bone);
+  transition:border-color .2s;
+}
+.login-card input:focus{outline:none;border-color:var(--rose)}
+.login-card button{
+  width:100%;margin-top:1rem;padding:0.95rem;border:none;border-radius:12px;
+  background:var(--ink);color:var(--bone);font-size:0.85rem;font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;transition:background .2s;
+}
+.login-card button:hover{background:var(--char)}
+.login-err{color:var(--bad);font-size:0.8rem;margin-top:1rem;min-height:1.2rem}
+.login-back{display:inline-block;margin-top:1.8rem;font-size:0.78rem;color:var(--mid);text-decoration:none;border-bottom:1px solid transparent}
+.login-back:hover{color:var(--ink);border-color:var(--ink)}
+
+/* ───────── APP SHELL ───────── */
+.app{display:none;min-height:100vh;grid-template-columns:240px 1fr}
+.app.show{display:grid}
+
+/* Sidebar */
+.sidebar{
+  background:var(--ink);color:var(--bone);
+  padding:2rem 1.2rem;display:flex;flex-direction:column;
+  position:sticky;top:0;height:100vh;
+}
+.side-mark{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:1.15rem;color:var(--bone);margin-bottom:0.2rem;line-height:1.3}
+.side-tag{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:2.5rem}
+.side-nav{list-style:none;display:flex;flex-direction:column;gap:0.3rem;flex:1}
+.side-link{
+  display:flex;align-items:center;gap:0.7rem;
+  padding:0.7rem 0.9rem;border-radius:10px;
+  font-size:0.86rem;font-weight:500;color:rgba(250,248,245,0.55);
+  text-decoration:none;transition:all .15s;background:none;border:none;width:100%;text-align:left;
+}
+.side-link .ico{font-size:1rem;width:1.2rem;text-align:center}
+.side-link:hover{color:var(--bone);background:rgba(255,255,255,0.06)}
+.side-link.active{color:var(--ink);background:var(--bone)}
+.side-foot{display:flex;flex-direction:column;gap:0.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1)}
+.side-foot a, .side-foot button{
+  font-size:0.78rem;color:rgba(250,248,245,0.45);text-decoration:none;
+  background:none;border:none;text-align:left;padding:0.3rem 0.2rem;transition:color .15s;
+}
+.side-foot a:hover, .side-foot button:hover{color:var(--blush)}
+
+/* Main */
+.main{padding:2.5rem 3rem 5rem;max-width:1100px}
+.main-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.2rem;flex-wrap:wrap;gap:1rem}
+.main-h1{font-family:'Fraunces',serif;font-weight:300;font-size:2.1rem;letter-spacing:-0.01em}
+.main-h1 em{font-style:italic;color:var(--rose)}
+.main-sub{font-size:0.85rem;color:var(--mid);margin-top:0.3rem}
+.panel{display:none}
+.panel.show{display:block}
+
+/* Stats row */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.stat{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:1.3rem 1.4rem}
+.stat .n{font-family:'Fraunces',serif;font-weight:400;font-size:2rem;color:var(--ink);letter-spacing:-0.02em;line-height:1}
+.stat .l{font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);margin-top:0.4rem;font-weight:500}
+
+/* Upload dropzone */
+.uploader{
+  background:var(--white);border:1.5px dashed var(--line);border-radius:20px;
+  padding:2.2rem;text-align:center;margin-bottom:2rem;transition:border-color .2s, background .2s;
+}
+.uploader.drag{border-color:var(--rose);background:#FFF8F4}
+.uploader .u-ico{font-size:1.8rem;margin-bottom:0.6rem}
+.uploader h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.15rem;margin-bottom:0.3rem}
+.uploader p{font-size:0.82rem;color:var(--mid);margin-bottom:1.2rem}
+.u-row{display:flex;gap:0.7rem;justify-content:center;flex-wrap:wrap;align-items:center}
+.u-select{
+  padding:0.7rem 1rem;border:1.5px solid var(--line);border-radius:10px;
+  font-size:0.85rem;background:var(--bone);color:var(--ink);min-width:170px;
+}
+.u-btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--ink);color:var(--bone);padding:0.7rem 1.4rem;border-radius:10px;
+  font-size:0.85rem;font-weight:600;border:none;transition:background .2s;
+}
+.u-btn:hover{background:var(--char)}
+
+/* Filters */
+.gallery-filters{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.gf{
+  padding:0.5rem 1.1rem;border-radius:100px;border:1px solid var(--line);
+  background:var(--white);font-size:0.78rem;font-weight:500;color:var(--mid);
+  letter-spacing:0.02em;transition:all .15s;
+}
+.gf:hover{border-color:var(--rose);color:var(--ink)}
+.gf.active{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+
+/* Photo grid */
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem;margin-bottom:2rem}
+.p-card{
+  position:relative;border-radius:16px;overflow:hidden;background:var(--white);
+  border:1px solid var(--line);aspect-ratio:4/5;
+}
+.p-card img{width:100%;height:100%;object-fit:cover;display:block}
+.p-overlay{
+  position:absolute;inset:0;background:linear-gradient(to top,rgba(26,22,20,0.78) 0%,transparent 45%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:0.8rem;
+}
+.p-cat{
+  position:absolute;top:0.6rem;left:0.6rem;background:rgba(250,248,245,0.92);
+  color:var(--ink);font-size:0.65rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;
+  padding:0.3rem 0.6rem;border-radius:100px;
+}
+.p-label{color:var(--bone);font-size:0.8rem;font-weight:500;margin-bottom:0.1rem}
+.p-actions{display:flex;gap:0.4rem;position:absolute;top:0.6rem;right:0.6rem}
+.p-act{
+  width:28px;height:28px;border-radius:8px;border:none;
+  background:rgba(250,248,245,0.92);color:var(--ink);font-size:0.85rem;
+  display:flex;align-items:center;justify-content:center;transition:background .15s;
+}
+.p-act:hover{background:var(--white)}
+.p-act.featured{background:var(--gold);color:var(--white)}
+.p-act.danger:hover{background:var(--bad);color:var(--white)}
+.empty-state{
+  background:var(--white);border:1px dashed var(--line);border-radius:16px;
+  padding:3rem 2rem;text-align:center;color:var(--mid);font-size:0.88rem;grid-column:1/-1;
+}
+
+/* Settings form */
+.s-card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:1.8rem;margin-bottom:1.5rem}
+.s-card h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.2rem;margin-bottom:1.3rem}
+.s-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.s-field{display:flex;flex-direction:column;gap:0.4rem}
+.s-field.full{grid-column:1/-1}
+.s-field label{font-size:0.74rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--mid);font-weight:600}
+.s-field input{
+  padding:0.75rem 0.9rem;border:1.5px solid var(--line);border-radius:10px;
+  font-size:0.9rem;background:var(--bone);color:var(--ink);transition:border-color .2s;
+}
+.s-field input:focus{outline:none;border-color:var(--rose)}
+.s-hint{font-size:0.76rem;color:var(--mid);margin-top:0.3rem}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 0;border-bottom:1px solid var(--line)}
+.toggle-row:last-child{border-bottom:none}
+.toggle-row .t-label{font-size:0.88rem;font-weight:500}
+.toggle-row .t-sub{font-size:0.76rem;color:var(--mid);margin-top:0.1rem}
+.switch{position:relative;width:42px;height:24px;flex-shrink:0}
+.switch input{opacity:0;width:0;height:0}
+.switch .track{position:absolute;inset:0;background:var(--line);border-radius:100px;transition:background .2s;cursor:pointer}
+.switch .track::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;background:var(--white);border-radius:50%;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,0.2)}
+.switch input:checked + .track{background:var(--good)}
+.switch input:checked + .track::after{transform:translateX(18px)}
+.save-bar{
+  position:sticky;bottom:0;background:var(--white);border:1px solid var(--line);
+  border-radius:16px;padding:1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 -10px 30px -15px rgba(26,22,20,0.1);margin-top:0.5rem;
+}
+.save-status{font-size:0.82rem;color:var(--good);font-weight:500;opacity:0;transition:opacity .3s}
+.save-status.show{opacity:1}
+.save-btn{
+  background:var(--ink);color:var(--bone);padding:0.75rem 1.6rem;border:none;border-radius:10px;
+  font-size:0.85rem;font-weight:600;letter-spacing:0.03em;transition:background .2s;
+}
+.save-btn:hover{background:var(--char)}
+
+.pw-row{display:flex;gap:0.7rem;flex-wrap:wrap;align-items:flex-end}
+.pw-row .s-field{flex:1;min-width:160px}
+.pw-row button{
+  background:var(--char);color:var(--bone);border:none;border-radius:10px;
+  padding:0.75rem 1.3rem;font-size:0.84rem;font-weight:600;height:fit-content;
+}
+
+/* Toast */
+.toast{
+  position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(120%);
+  background:var(--ink);color:var(--bone);padding:0.85rem 1.5rem;border-radius:100px;
+  font-size:0.85rem;font-weight:500;box-shadow:0 20px 40px -10px rgba(0,0,0,0.3);
+  transition:transform .3s;z-index:500;
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+@media (max-width:860px){
+  .app.show{grid-template-columns:1fr}
+  .sidebar{position:static;height:auto;flex-direction:row;align-items:center;padding:1rem 1.2rem;overflow-x:auto}
+  .side-mark,.side-tag{display:none}
+  .side-nav{flex-direction:row;flex:none}
+  .side-foot{display:none}
+  .main{padding:1.5rem 1.2rem 4rem}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .s-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ═════════ LOGIN ═════════ -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="login-mark">Fallou's African Hair Braiding</div>
+    <div class="login-sub">Admin Access</div>
+    <input type="password" id="pwInput" placeholder="Enter password" autocomplete="current-password"/>
+    <button id="pwSubmit">Log In</button>
+    <div class="login-err" id="pwErr"></div>
+    <a href="fallous-braiding.html" class="login-back">← Back to site</a>
+  </div>
+</div>
+
+<!-- ═════════ APP ═════════ -->
+<div class="app" id="app">
+  <aside class="sidebar">
+    <div class="side-mark">Fallou's</div>
+    <div class="side-tag">Admin Dashboard</div>
+    <nav class="side-nav">
+      <button class="side-link active" data-panel="photos"><span class="ico">🖼</span> Photos</button>
+      <button class="side-link" data-panel="settings"><span class="ico">⚙️</span> Settings</button>
+    </nav>
+    <div class="side-foot">
+      <a href="fallous-braiding.html" target="_blank">↗ View live site</a>
+      <button id="logoutBtn">Log out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- PHOTOS PANEL -->
+    <section class="panel show" id="panel-photos">
+      <div class="main-head">
+        <div>
+          <h1 class="main-h1">Gallery <em>photos</em></h1>
+          <p class="main-sub">Upload, tag, and feature photos shown on the website's gallery.</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><span class="n" id="statTotal">0</span><span class="l">Total photos</span></div>
+        <div class="stat"><span class="n" id="statFeatured">0</span><span class="l">Featured</span></div>
+        <div class="stat"><span class="n" id="statCats">0</span><span class="l">Categories used</span></div>
+        <div class="stat"><span class="n" id="statRecent">0</span><span class="l">Added this week</span></div>
+      </div>
+
+      <div class="uploader" id="dropzone">
+        <div class="u-ico">📸</div>
+        <h3>Drop photos here</h3>
+        <p>Or choose a category and select files from your device</p>
+        <div class="u-row">
+          <select class="u-select" id="catSelect">
+            <option value="box">Box Braids</option>
+            <option value="cornrows">Cornrows</option>
+            <option value="twists">Twists</option>
+            <option value="locs">Locs</option>
+            <option value="fulani">Fulani</option>
+            <option value="kids">Kids</option>
+          </select>
+          <label class="u-btn" for="fileInput">📤 Choose Photos</label>
+          <input type="file" id="fileInput" accept="image/*" multiple hidden/>
+        </div>
+      </div>
+
+      <div class="gallery-filters" id="filterRow">
+        <button class="gf active" data-f="all">All</button>
+        <button class="gf" data-f="box">Box Braids</button>
+        <button class="gf" data-f="cornrows">Cornrows</button>
+        <button class="gf" data-f="twists">Twists</button>
+        <button class="gf" data-f="locs">Locs</button>
+        <button class="gf" data-f="fulani">Fulani</button>
+        <button class="gf" data-f="kids">Kids</button>
+      </div>
+
+      <div class="photo-grid" id="photoGrid"></div>
+    </section>
+
+    <!-- SETTINGS PANEL -->
+    <section class="panel" id="panel-settings">
+      <div class="main-head">
+        <div>
+          <h1 class="main-h1">Site <em>settings</em></h1>
+          <p class="main-sub">Update contact info, hours, and social links shown on the site. The design stays locked — these are content tweaks only.</p>
+        </div>
+      </div>
+
+      <div class="s-card">
+        <h3>Contact</h3>
+        <div class="s-grid">
+          <div class="s-field"><label>Phone (displayed)</label><input type="text" id="setPhone" placeholder="(248) 000-0000"/></div>
+          <div class="s-field"><label>Phone (for call/text links)</label><input type="text" id="setPhoneE164" placeholder="+12480000000"/></div>
+          <div class="s-field full"><label>Email</label><input type="email" id="setEmail" placeholder="hello@fallousafricanhairbraiding.com"/></div>
+        </div>
+        <p class="s-hint">The second phone field is used behind the scenes for the Call and Text buttons — format like +1 then the 10-digit number, no spaces or dashes.</p>
+      </div>
+
+      <div class="s-card">
+        <h3>Hours of operation</h3>
+        <div class="s-grid">
+          <div class="s-field"><label>Monday – Friday</label><input type="text" id="hWeekday" placeholder="9:00 AM – 7:00 PM"/></div>
+          <div class="s-field"><label>Saturday</label><input type="text" id="hSat" placeholder="8:00 AM – 6:00 PM"/></div>
+          <div class="s-field"><label>Sunday</label><input type="text" id="hSun" placeholder="10:00 AM – 4:00 PM"/></div>
+          <div class="s-field"><label>Walk-ins</label><input type="text" id="hWalkins" placeholder="Always Welcome"/></div>
+        </div>
+      </div>
+
+      <div class="s-card">
+        <h3>Social links</h3>
+        <div class="toggle-row" style="display:block;border:none;padding:0">
+          <div class="s-grid">
+            <div class="s-field"><label>Instagram URL</label><input type="text" id="socIg" placeholder="https://instagram.com/..."/></div>
+            <div class="s-field"><label>Facebook URL</label><input type="text" id="socFb" placeholder="https://facebook.com/..."/></div>
+            <div class="s-field"><label>TikTok URL</label><input type="text" id="socTt" placeholder="https://tiktok.com/@..."/></div>
+          </div>
+        </div>
+        <p class="s-hint">Leave a field blank to hide that icon on the website footer.</p>
+      </div>
+
+      <div class="s-card">
+        <h3>Change admin password</h3>
+        <div class="pw-row">
+          <div class="s-field"><label>Current password</label><input type="password" id="pwCurrent"/></div>
+          <div class="s-field"><label>New password</label><input type="password" id="pwNew"/></div>
+          <button id="pwChangeBtn">Update password</button>
+        </div>
+      </div>
+
+      <div class="save-bar">
+        <span class="save-status" id="saveStatus">✓ Saved</span>
+        <button class="save-btn" id="saveSettingsBtn">Save changes</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ════════ STORAGE KEYS (must match main site) ════════
+const GALLERY_KEY = 'fallous_gallery';
+const SETTINGS_KEY = 'fallous_settings';
+const PW_KEY = 'fallous_admin_pw';
+const DEFAULT_PW = 'fallous2024';
+const DEFAULT_SETTINGS = {
+  phone: '(248) 336-1670',
+  phoneE164: '+12483361670',
+  email: 'hello@fallousafricanhairbraiding.com',
+  hours: { weekday: '9:00 AM – 7:00 PM', sat: '8:00 AM – 6:00 PM', sun: '10:00 AM – 4:00 PM', walkins: 'Always Welcome' },
+  social: { instagram: '', facebook: '', tiktok: '' }
+};
+const CAT_LABELS = { box:'Box Braids', cornrows:'Cornrows', twists:'Twists', locs:'Locs', fulani:'Fulani', kids:'Kids' };
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._tm);
+  t._tm = setTimeout(()=>t.classList.remove('show'), 2400);
+}
+
+// ════════ AUTH ════════
+function getPw(){ return localStorage.getItem(PW_KEY) || DEFAULT_PW; }
+document.getElementById('pwSubmit').addEventListener('click', tryLogin);
+document.getElementById('pwInput').addEventListener('keydown', e=>{ if(e.key==='Enter') tryLogin(); });
+function tryLogin(){
+  const val = document.getElementById('pwInput').value;
+  if(val === getPw()){
+    sessionStorage.setItem('fallous_admin_session','1');
+    enterApp();
+  } else {
+    document.getElementById('pwErr').textContent = 'Incorrect password. Try again.';
+  }
+}
+function enterApp(){
+  document.getElementById('loginScreen').style.display='none';
+  document.getElementById('app').classList.add('show');
+  initGallery();
+  initSettings();
+}
+document.getElementById('logoutBtn').addEventListener('click',()=>{
+  sessionStorage.removeItem('fallous_admin_session');
+  location.reload();
+});
+if(sessionStorage.getItem('fallous_admin_session')==='1') enterApp();
+
+// ════════ NAV ════════
+document.querySelectorAll('.side-link').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.side-link').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+    document.getElementById('panel-'+btn.dataset.panel).classList.add('show');
+  });
+});
+
+// ════════ GALLERY ════════
+let activeFilter = 'all';
+function loadPhotos(){ try{ return JSON.parse(localStorage.getItem(GALLERY_KEY)||'[]'); }catch(e){ return []; } }
+function savePhotos(photos){ localStorage.setItem(GALLERY_KEY, JSON.stringify(photos)); }
+
+function initGallery(){
+  renderGallery();
+  document.getElementById('fileInput').addEventListener('change', e=>handleFiles(e.target.files));
+  const dz = document.getElementById('dropzone');
+  dz.addEventListener('dragover', e=>{ e.preventDefault(); dz.classList.add('drag'); });
+  dz.addEventListener('dragleave', ()=> dz.classList.remove('drag'));
+  dz.addEventListener('drop', e=>{
+    e.preventDefault(); dz.classList.remove('drag');
+    handleFiles(Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/')));
+  });
+  document.querySelectorAll('#filterRow .gf').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('#filterRow .gf').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.f;
+      renderGallery();
+    });
+  });
+}
+
+function handleFiles(fileList){
+  const cat = document.getElementById('catSelect').value;
+  const photos = loadPhotos();
+  let count = 0;
+  Array.from(fileList).forEach(file=>{
+    const reader = new FileReader();
+    reader.onload = ev=>{
+      photos.push({
+        id: Date.now()+'-'+Math.random().toString(36).slice(2,7),
+        src: ev.target.result,
+        label: file.name.replace(/\.[^.]+$/,'').replace(/[-_]/g,' '),
+        cat,
+        featured: false,
+        added: Date.now()
+      });
+      savePhotos(photos);
+      count++;
+      if(count === fileList.length){ renderGallery(); showToast(`${count} photo${count>1?'s':''} uploaded`); }
+    };
+    reader.readAsDataURL(file);
+  });
+  document.getElementById('fileInput').value='';
+}
+
+function renderGallery(){
+  const photos = loadPhotos();
+  const grid = document.getElementById('photoGrid');
+  const shown = activeFilter==='all' ? photos : photos.filter(p=>p.cat===activeFilter);
+
+  document.getElementById('statTotal').textContent = photos.length;
+  document.getElementById('statFeatured').textContent = photos.filter(p=>p.featured).length;
+  document.getElementById('statCats').textContent = new Set(photos.map(p=>p.cat)).size;
+  const weekAgo = Date.now() - 7*24*60*60*1000;
+  document.getElementById('statRecent').textContent = photos.filter(p=>(p.added||0) > weekAgo).length;
+
+  if(!shown.length){
+    grid.innerHTML = `<div class="empty-state">No photos yet${activeFilter!=='all' ? ' in '+CAT_LABELS[activeFilter] : ''}. Drop some above to get started.</div>`;
+    return;
+  }
+
+  grid.innerHTML = shown.slice().reverse().map(p=>`
+    <div class="p-card" data-id="${p.id}">
+      <img src="${p.src}" alt="${p.label}"/>
+      <span class="p-cat">${CAT_LABELS[p.cat]||p.cat}</span>
+      <div class="p-actions">
+        <button class="p-act ${p.featured?'featured':''}" data-act="feature" title="Feature">★</button>
+        <button class="p-act danger" data-act="delete" title="Delete">✕</button>
+      </div>
+      <div class="p-overlay"><span class="p-label">${p.label}</span></div>
+    </div>
+  `).join('');
+
+  grid.querySelectorAll('.p-card').forEach(card=>{
+    const id = card.dataset.id;
+    card.querySelector('[data-act="feature"]').addEventListener('click', ()=>{
+      const photos = loadPhotos();
+      const p = photos.find(x=>String(x.id)===id);
+      if(p){ p.featured = !p.featured; savePhotos(photos); renderGallery(); }
+    });
+    card.querySelector('[data-act="delete"]').addEventListener('click', ()=>{
+      if(!confirm('Remove this photo from the gallery?')) return;
+      const photos = loadPhotos().filter(x=>String(x.id)!==id);
+      savePhotos(photos); renderGallery();
+      showToast('Photo removed');
+    });
+  });
+}
+
+// ════════ SETTINGS ════════
+function loadSettings(){
+  try{
+    const raw = localStorage.getItem(SETTINGS_KEY);
+    if(!raw) return JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
+    const saved = JSON.parse(raw);
+    return { ...DEFAULT_SETTINGS, ...saved, hours: { ...DEFAULT_SETTINGS.hours, ...(saved.hours||{}) }, social: { ...DEFAULT_SETTINGS.social, ...(saved.social||{}) } };
+  }catch(e){ return JSON.parse(JSON.stringify(DEFAULT_SETTINGS)); }
+}
+
+function initSettings(){
+  const s = loadSettings();
+  document.getElementById('setPhone').value = s.phone;
+  document.getElementById('setPhoneE164').value = s.phoneE164;
+  document.getElementById('setEmail').value = s.email;
+  document.getElementById('hWeekday').value = s.hours.weekday;
+  document.getElementById('hSat').value = s.hours.sat;
+  document.getElementById('hSun').value = s.hours.sun;
+  document.getElementById('hWalkins').value = s.hours.walkins;
+  document.getElementById('socIg').value = s.social.instagram;
+  document.getElementById('socFb').value = s.social.facebook;
+  document.getElementById('socTt').value = s.social.tiktok;
+
+  document.getElementById('saveSettingsBtn').addEventListener('click', ()=>{
+    const updated = {
+      phone: document.getElementById('setPhone').value.trim() || DEFAULT_SETTINGS.phone,
+      phoneE164: document.getElementById('setPhoneE164').value.trim() || DEFAULT_SETTINGS.phoneE164,
+      email: document.getElementById('setEmail').value.trim() || DEFAULT_SETTINGS.email,
+      hours: {
+        weekday: document.getElementById('hWeekday').value.trim() || DEFAULT_SETTINGS.hours.weekday,
+        sat: document.getElementById('hSat').value.trim() || DEFAULT_SETTINGS.hours.sat,
+        sun: document.getElementById('hSun').value.trim() || DEFAULT_SETTINGS.hours.sun,
+        walkins: document.getElementById('hWalkins').value.trim() || DEFAULT_SETTINGS.hours.walkins
+      },
+      social: {
+        instagram: document.getElementById('socIg').value.trim(),
+        facebook: document.getElementById('socFb').value.trim(),
+        tiktok: document.getElementById('socTt').value.trim()
+      }
+    };
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(updated));
+    const status = document.getElementById('saveStatus');
+    status.classList.add('show');
+    setTimeout(()=>status.classList.remove('show'), 2000);
+    showToast('Settings saved — refresh the live site to see changes');
+  });
+
+  document.getElementById('pwChangeBtn').addEventListener('click', ()=>{
+    const current = document.getElementById('pwCurrent').value;
+    const next = document.getElementById('pwNew').value;
+    if(current !== getPw()){ showToast('Current password is incorrect'); return; }
+    if(!next || next.length < 4){ showToast('New password must be at least 4 characters'); return; }
+    localStorage.setItem(PW_KEY, next);
+    document.getElementById('pwCurrent').value='';
+    document.getElementById('pwNew').value='';
+    showToast('Password updated');
+  });
+}
+</script>
+</body>
+</html>
