@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fallou's African Hair Braiding — Oak Park, MI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Canela+Deck:ital,wght@0,300;1,300&family=Founders+Grotesk:wght@400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bone:    #FAF8F5;
+  --white:   #FFFFFF;
+  --blush:   #E8C9B8;
+  --rose:    #C4856A;
+  --mocha:   #8B5E52;
+  --ink:     #1A1614;
+  --char:    #2D2420;
+  --mid:     #7A6860;
+  --light:   #F0EAE6;
+  --line:    rgba(26,22,20,0.1);
+  --gold:    #C9963C;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bone);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;height:64px;
+  background:rgba(250,248,245,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+  transition:background .3s;
+}
+.nav-wordmark{
+  font-family:'Fraunces',serif;
+  font-size:1.05rem;font-weight:300;
+  color:var(--ink);letter-spacing:0.01em;
+  text-decoration:none;font-style:italic;
+}
+.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
+.nav-links a{font-size:0.78rem;color:var(--mid);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-book{
+  background:var(--ink);color:var(--bone);
+  padding:0.52rem 1.4rem;border-radius:100px;
+  font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  text-decoration:none;transition:background .2s;
+}
+.nav-book:hover{background:var(--char)}
+.nav-menu{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px}
+.nav-menu span{display:block;width:22px;height:1.5px;background:var(--ink);border-radius:2px}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 5vw 5vw;
+  padding-top:64px;
+  position:relative;
+  overflow:hidden;
+  background:var(--bone);
+}
+.hero-visual{
+  position:absolute;top:64px;right:0;bottom:0;
+  width:52%;
+  background:linear-gradient(160deg,#2D1E18 0%,#4A2E22 30%,#7A4A32 60%,#A06840 100%);
+  clip-path:polygon(8% 0,100% 0,100% 100%,0 100%);
+}
+.hero-visual::after{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-content{
+  position:relative;z-index:2;
+  max-width:680px;
+  padding-top:8vh;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--rose);font-weight:600;margin-bottom:2rem;
+}
+.hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--rose)}
+.hero-h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(3.5rem,8vw,7.5rem);
+  font-weight:300;line-height:0.95;
+  color:var(--ink);letter-spacing:-0.02em;
+  margin-bottom:2.5rem;
+}
+.hero-h1 em{font-style:italic;color:var(--rose)}
+.hero-h1 .thin{font-weight:300;display:block}
+.hero-bottom{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:2rem;flex-wrap:wrap;margin-top:auto;
+  padding-top:6vh;
+}
+.hero-desc{
+  font-size:0.95rem;color:var(--mid);max-width:360px;
+  line-height:1.75;font-weight:300;
+}
+.hero-actions{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center}
+.btn-primary{
+  background:var(--ink);color:var(--bone);
+  padding:0.9rem 2rem;border-radius:100px;
+  font-size:0.85rem;font-weight:600;letter-spacing:0.04em;
+  text-decoration:none;transition:background .2s,transform .15s;display:inline-block;
+}
+.btn-primary:hover{background:var(--char);transform:translateY(-1px)}
+.btn-secondary{
+  color:var(--ink);font-size:0.85rem;font-weight:500;
+  text-decoration:none;letter-spacing:0.02em;
+  display:inline-flex;align-items:center;gap:0.4rem;
+  border-bottom:1px solid var(--ink);padding-bottom:1px;
+  transition:color .2s;
+}
+.btn-secondary:hover{color:var(--rose);border-color:var(--rose)}
+.hero-tag{
+  text-align:right;font-size:0.75rem;color:var(--mid);
+  letter-spacing:0.06em;line-height:1.8;
+}
+.hero-tag strong{display:block;font-family:'Fraunces',serif;font-size:2.2rem;font-weight:300;color:var(--ink);letter-spacing:-0.03em;line-height:1}
+
+/* ── MARQUEE ── */
+.marquee-wrap{
+  background:var(--ink);color:var(--bone);
+  padding:0.9rem 0;overflow:hidden;white-space:nowrap;
+}
+.marquee-track{
+  display:inline-block;
+  animation:marquee 22s linear infinite;
+}
+.marquee-track span{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:1rem;font-weight:300;
+  padding:0 2.5rem;letter-spacing:0.02em;
+}
+.marquee-track .dot{color:var(--rose);font-style:normal}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SECTION BASE ── */
+.s-label{
+  font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--rose);font-weight:600;display:block;margin-bottom:1rem;
+}
+.s-h{
+  font-family:'Fraunces',serif;font-weight:300;
+  font-size:clamp(2rem,5vw,3.8rem);
+  color:var(--ink);letter-spacing:-0.02em;line-height:1.05;
+}
+.s-h em{font-style:italic;color:var(--rose)}
+
+/* ── ABOUT ── */
+.about{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:80vh;
+}
+.about-image{
+  background:linear-gradient(140deg,#F0E4DC 0%,#D4A080 40%,#8B4A2A 100%);
+  position:relative;overflow:hidden;min-height:500px;
+  display:flex;align-items:center;justify-content:center;
+}
+.about-image-inner{
+  width:55%;aspect-ratio:3/4;
+  background:rgba(255,255,255,0.06);
+  border-radius:200px;
+  border:1px solid rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:5rem;color:rgba(255,255,255,0.15);
+}
+.about-badge{
+  position:absolute;bottom:2.5rem;right:2.5rem;
+  background:var(--ink);color:var(--bone);
+  padding:1.5rem;border-radius:20px;
+  text-align:center;
+}
+.about-badge .n{
+  font-family:'Fraunces',serif;font-size:2.8rem;font-weight:300;
+  color:var(--blush);letter-spacing:-0.04em;line-height:1;display:block;
+}
+.about-badge .l{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.6;margin-top:0.2rem}
+.about-body{
+  padding:6rem 5vw 6rem 4rem;
+  display:flex;flex-direction:column;justify-content:center;
+  background:var(--white);
+}
+.about-body .s-h{margin-bottom:2rem}
+.about-body p{color:var(--mid);font-size:0.97rem;line-height:1.85;font-weight:300;margin-bottom:1.2rem}
+.about-pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:2rem}
+.pill{
+  font-size:0.75rem;padding:0.4rem 1rem;border-radius:100px;
+  border:1px solid var(--line);color:var(--char);font-weight:500;
+  background:var(--bone);letter-spacing:0.02em;
+}
+.pill.dark{background:var(--ink);color:var(--blush);border-color:var(--ink)}
+
+/* ── SERVICES ── */
+.services{padding:8rem 5vw;background:var(--bone)}
+.services-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:4rem;padding-bottom:2rem;
+  border-bottom:1px solid var(--line);
+  flex-wrap:wrap;gap:1.5rem;
+}
+.services-top-note{font-size:0.85rem;color:var(--mid);font-weight:300;max-width:260px;text-align:right}
+.services-list{display:flex;flex-direction:column;gap:0}
+.svc-row{
+  display:grid;grid-template-columns:2fr 3fr 1fr auto;
+  align-items:center;gap:2rem;
+  padding:2rem 0;
+  border-bottom:1px solid var(--line);
+  transition:background .2s;
+  cursor:default;
+}
+.svc-row:hover{background:var(--light);margin:0 -2rem;padding-left:2rem;padding-right:2rem}
+.svc-num{font-family:'Fraunces',serif;font-size:0.85rem;color:rgba(196,133,106,0.4);font-style:italic}
+.svc-name{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:300;color:var(--ink);letter-spacing:-0.01em}
+.svc-desc{font-size:0.85rem;color:var(--mid);font-weight:300;line-height:1.6}
+.svc-price{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--ink);font-weight:300;text-align:right;white-space:nowrap}
+.svc-arrow{color:var(--rose);font-size:1.1rem;transition:transform .2s}
+.svc-row:hover .svc-arrow{transform:translateX(4px)}
+
+/* ── GALLERY ── */
+.gallery{padding:8rem 5vw;background:var(--white)}
+.gallery-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
+.gallery-filters{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.gf{
+  background:transparent;border:1px solid var(--line);
+  color:var(--mid);padding:0.4rem 1rem;border-radius:100px;
+  font-size:0.76rem;font-weight:500;cursor:pointer;
+  transition:all .2s;font-family:'Outfit',sans-serif;letter-spacing:0.04em;
+}
+.gf:hover{border-color:var(--rose);color:var(--rose)}
+.gf.active{background:var(--ink);border-color:var(--ink);color:var(--bone)}
+.upload-lbl{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--bone);border:1px solid var(--line);
+  color:var(--char);padding:0.6rem 1.2rem;border-radius:100px;
+  font-size:0.78rem;font-weight:600;cursor:pointer;
+  transition:background .2s;letter-spacing:0.04em;
+}
+.upload-lbl:hover{background:var(--light)}
+.gallery-masonry{
+  columns:4;column-gap:12px;
+}
+.gallery-masonry .g-card{
+  break-inside:avoid;margin-bottom:12px;
+  border-radius:16px;overflow:hidden;
+  position:relative;cursor:pointer;
+  background:var(--light);
+}
+.gallery-masonry .g-card img,
+.gallery-masonry .g-card .g-ph{
+  width:100%;display:block;transition:transform .4s;
+}
+.gallery-masonry .g-card:hover img,
+.gallery-masonry .g-card:hover .g-ph{transform:scale(1.04)}
+.g-ph{
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.5rem;
+}
+.g-ph.t1{aspect-ratio:3/4;background:linear-gradient(150deg,#F0D8CC,#C48A6A)}
+.g-ph.t2{aspect-ratio:4/5;background:linear-gradient(150deg,#D4C4B8,#8B6454)}
+.g-ph.t3{aspect-ratio:1/1;background:linear-gradient(150deg,#E8D4C4,#A07060)}
+.g-ph.t4{aspect-ratio:2/3;background:linear-gradient(150deg,#BFCCC4,#607868)}
+.g-ph.t5{aspect-ratio:3/4;background:linear-gradient(150deg,#D4CCBC,#8B7A5A)}
+.g-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(26,22,20,0.6) 0%,transparent 50%);
+  opacity:0;transition:opacity .3s;
+  display:flex;align-items:flex-end;padding:1.2rem;
+}
+.g-card:hover .g-overlay{opacity:1}
+.g-lbl{font-size:0.75rem;color:#fff;font-weight:500;letter-spacing:0.06em;text-transform:uppercase}
+.g-del{
+  position:absolute;top:0.6rem;right:0.6rem;
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(250,248,245,0.9);border:none;
+  color:var(--ink);font-size:0.75rem;cursor:pointer;
+  display:none;align-items:center;justify-content:center;
+}
+.g-card:hover .g-del{display:flex}
+.gallery-empty{text-align:center;padding:5rem 2rem;color:var(--mid);grid-column:1/-1}
+.gallery-empty-icon{font-size:3rem;margin-bottom:1rem;opacity:0.3;display:block}
+
+/* ── LIGHTBOX ── */
+.lb{display:none;position:fixed;inset:0;z-index:1000;background:rgba(26,22,20,0.96);align-items:center;justify-content:center}
+.lb.open{display:flex}
+.lb-wrap{max-width:90vw;max-height:85vh;position:relative}
+.lb-wrap img{max-width:100%;max-height:85vh;object-fit:contain;border-radius:4px}
+.lb-x{position:fixed;top:1.5rem;right:2rem;background:none;border:none;color:rgba(250,248,245,0.5);font-size:1.8rem;cursor:pointer;transition:color .2s;line-height:1}
+.lb-x:hover{color:#fff}
+.lb-arr{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:#fff;width:50px;height:50px;border-radius:50%;cursor:pointer;font-size:1.5rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lb-arr:hover{background:rgba(255,255,255,0.15)}
+#lbPrev{left:1.5rem}#lbNext{right:1.5rem}
+.lb-cap{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(250,248,245,0.4);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase}
+
+/* ── PROCESS ── */
+.process{
+  padding:8rem 5vw;
+  background:var(--ink);
+}
+.process .s-label{color:rgba(232,201,184,0.5)}
+.process .s-h{color:var(--bone)}
+.process .s-h em{color:var(--blush)}
+.process-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;margin-top:4rem;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+.step{
+  padding:2.5rem 2rem 2.5rem 0;
+  border-right:1px solid rgba(255,255,255,0.08);
+}
+.step:last-child{border-right:none;padding-right:0}
+.step-n{
+  font-family:'Fraunces',serif;font-size:0.85rem;font-style:italic;
+  color:rgba(232,201,184,0.3);margin-bottom:1.5rem;display:block;
+}
+.step-title{font-size:1rem;font-weight:500;color:var(--bone);margin-bottom:0.6rem}
+.step-body{font-size:0.85rem;color:rgba(250,248,245,0.4);line-height:1.7;font-weight:300}
+
+/* ── TESTIMONIALS ── */
+.testimonials{padding:8rem 5vw;background:var(--light)}
+.testimonials .s-h{margin-bottom:3.5rem}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.tcard{
+  background:var(--white);border-radius:20px;padding:2.2rem;
+  transition:transform .2s,box-shadow .2s;
+}
+.tcard:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(26,22,20,0.08)}
+.tcard-stars{color:var(--rose);font-size:0.85rem;letter-spacing:0.1em;margin-bottom:1.2rem}
+.tcard-text{
+  font-family:'Fraunces',serif;font-size:1.05rem;font-weight:300;font-style:italic;
+  color:var(--char);line-height:1.7;margin-bottom:1.5rem;
+}
+.tcard-author{font-size:0.75rem;color:var(--mid);letter-spacing:0.08em;text-transform:uppercase;font-weight:500}
+
+/* ── BOOKING ── */
+.booking{
+  padding:8rem 5vw;
+  background:var(--bone);
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;
+}
+.booking-left{}
+.booking-left .s-h{margin-bottom:1rem}
+.booking-sub{color:var(--mid);font-size:0.95rem;font-weight:300;line-height:1.75;margin-bottom:3rem}
+.bk-btns{display:flex;flex-direction:column;gap:0.8rem;margin-bottom:3rem}
+.bk-btn{
+  display:flex;align-items:center;gap:1rem;
+  padding:1.1rem 1.4rem;border-radius:14px;
+  text-decoration:none;transition:transform .15s;border:none;cursor:pointer;
+  font-family:'Outfit',sans-serif;width:100%;
+}
+.bk-btn:hover{transform:translateY(-2px)}
+.bk-call{background:var(--ink);color:var(--bone)}
+.bk-cal{background:var(--white);color:var(--ink);border:1px solid var(--line)}
+.bk-sms{background:var(--blush);color:var(--ink)}
+.bk-icon{
+  width:42px;height:42px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;
+}
+.bk-call .bk-icon{background:rgba(255,255,255,0.1)}
+.bk-cal .bk-icon{background:var(--light)}
+.bk-sms .bk-icon{background:rgba(26,22,20,0.08)}
+.bk-text .bk-title{font-weight:600;font-size:0.9rem;display:block;line-height:1.2;margin-bottom:0.1rem}
+.bk-text .bk-hint{font-size:0.75rem;opacity:0.55}
+.hours-wrap{
+  background:var(--white);border-radius:16px;padding:1.5rem;border:1px solid var(--line);
+}
+.hours-wrap h4{
+  font-family:'Fraunces',serif;font-size:0.85rem;font-style:italic;
+  color:var(--rose);margin-bottom:1rem;
+}
+.h-row{display:flex;justify-content:space-between;padding:0.4rem 0;border-bottom:1px solid var(--line);font-size:0.85rem}
+.h-row:last-child{border-bottom:none}
+.h-day{color:var(--mid);font-weight:400}.h-time{color:var(--ink);font-weight:500}
+
+/* FORM */
+.booking-form{
+  background:var(--white);border-radius:24px;
+  padding:2.5rem;border:1px solid var(--line);
+}
+.booking-form .s-label{margin-bottom:0.4rem}
+.booking-form .s-h{font-size:2rem;margin-bottom:2rem}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.ff{display:flex;flex-direction:column;gap:0.4rem}
+.ff.full{grid-column:span 2}
+.fl{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);font-weight:600}
+.ff input,.ff select,.ff textarea{
+  width:100%;background:var(--bone);
+  border:1.5px solid rgba(26,22,20,0.08);border-radius:10px;
+  padding:0.8rem 1rem;font-family:'Outfit',sans-serif;font-size:0.9rem;
+  color:var(--ink);outline:none;transition:border-color .2s;-webkit-appearance:none;
+}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:var(--rose);background:var(--white)}
+.ff textarea{min-height:90px;resize:vertical}
+.f-submit{
+  width:100%;background:var(--ink);color:var(--bone);
+  border:none;border-radius:100px;padding:1rem;
+  font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:600;
+  cursor:pointer;margin-top:0.5rem;letter-spacing:0.04em;
+  transition:background .2s,transform .15s;
+}
+.f-submit:hover{background:var(--char);transform:translateY(-1px)}
+.f-note{font-size:0.74rem;color:var(--mid);text-align:center;margin-top:0.75rem}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--ink);padding:3rem 5vw;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;gap:2rem;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.foot-brand{font-family:'Fraunces',serif;font-size:1rem;color:var(--blush);font-weight:300;font-style:italic}
+.foot-copy{font-size:0.72rem;color:rgba(250,248,245,0.25);text-align:center}
+.foot-links{display:flex;justify-content:flex-end;gap:1.5rem}
+.foot-links a{font-size:0.75rem;color:rgba(250,248,245,0.35);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color .2s}
+.foot-links a:hover{color:var(--blush)}
+
+/* ── MOBILE ── */
+@media(max-width:960px){
+  .hero-visual{width:45%}
+  .about{grid-template-columns:1fr}
+  .about-image{min-height:400px}
+  .about-body{padding:4rem 5vw}
+  .svc-row{grid-template-columns:1fr 1fr;gap:1rem}
+  .svc-num,.svc-arrow{display:none}
+  .gallery-masonry{columns:2}
+  .process-steps{grid-template-columns:1fr 1fr}
+  .step{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);padding:2rem 0}
+  .testi-grid{grid-template-columns:1fr}
+  .booking{grid-template-columns:1fr;gap:3rem;padding:5rem 5vw}
+  footer{grid-template-columns:1fr;text-align:center}
+  .foot-links{justify-content:center}
+  .nav-links{display:none}
+  .nav-menu{display:flex}
+}
+@media(max-width:600px){
+  .hero-visual{display:none}
+  .hero-content{max-width:100%}
+  .hero-h1{font-size:3.2rem}
+  .gallery-masonry{columns:2}
+  .svc-desc{display:none}
+  .svc-row{grid-template-columns:2fr 1fr}
+  .fg{grid-template-columns:1fr}.ff.full{grid-column:span 1}
+  .process-steps{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-wordmark" href="#">Fallou's African Hair Braiding</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#booking">Book</a></li>
+    <li><a href="fallous-ad-plan.html">Ad Plan</a></li>
+  </ul>
+  <a href="#booking" class="nav-book">Book Now</a>
+  <button class="nav-menu" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-visual"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Black-Owned · Oak Park, Michigan</div>
+    <h1 class="hero-h1">
+      <span class="thin">The Art of</span>
+      <em>African</em>
+      <span class="thin">Hair Braiding</span>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-desc">Where West African tradition meets modern beauty. Serving Metro Detroit with expert protective styles for over 20 years.</p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn-primary">Book an Appointment</a>
+        <a href="#gallery" class="btn-secondary">View our work →</a>
+      </div>
+      <div class="hero-tag">
+        <strong>20+</strong>
+        Years of<br/>expertise
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Box Braids</span><span class="dot">✦</span>
+    <span>Knotless Braids</span><span class="dot">✦</span>
+    <span>Senegalese Twists</span><span class="dot">✦</span>
+    <span>Cornrows</span><span class="dot">✦</span>
+    <span>Faux Locs</span><span class="dot">✦</span>
+    <span>Fulani Braids</span><span class="dot">✦</span>
+    <span>Children's Styles</span><span class="dot">✦</span>
+    <span>Protective Styles</span><span class="dot">✦</span>
+    <span>Box Braids</span><span class="dot">✦</span>
+    <span>Knotless Braids</span><span class="dot">✦</span>
+    <span>Senegalese Twists</span><span class="dot">✦</span>
+    <span>Cornrows</span><span class="dot">✦</span>
+    <span>Faux Locs</span><span class="dot">✦</span>
+    <span>Fulani Braids</span><span class="dot">✦</span>
+    <span>Children's Styles</span><span class="dot">✦</span>
+    <span>Protective Styles</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-image">
+    <div class="about-image-inner">✦</div>
+    <div class="about-badge">
+      <span class="n">20+</span>
+      <span class="l">Years in<br/>Metro Detroit</span>
+    </div>
+  </div>
+  <div class="about-body">
+    <span class="s-label">Our Story</span>
+    <h2 class="s-h">Rooted in culture,<br/><em>refined by craft.</em></h2>
+    <p>Fallou's African Hair Braiding is a proudly Black-owned salon that has served Oak Park and Metro Detroit for over two decades. We bring generations of West African braiding knowledge to every client who walks through our doors.</p>
+    <p>Every style we create is a bridge between tradition and the present — a living expression of beauty practices that have empowered communities for centuries. Our stylists bring patience, skill, and genuine care to every appointment.</p>
+    <div class="about-pills">
+      <span class="pill dark">✊🏾 Black-Owned</span>
+      <span class="pill">20+ Years Experience</span>
+      <span class="pill">All Hair Textures</span>
+      <span class="pill">Kids Welcome</span>
+      <span class="pill">Walk-ins Available</span>
+      <span class="pill">Protective Styles</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-top">
+    <div>
+      <span class="s-label">Services</span>
+      <h2 class="s-h">What we <em>offer</em></h2>
+    </div>
+    <p class="services-top-note">Pricing varies by hair length, thickness & style complexity. Contact us for a quote.</p>
+  </div>
+  <div class="services-list">
+    <div class="svc-row">
+      <div class="svc-num">i.</div>
+      <div class="svc-name">Box Braids</div>
+      <div class="svc-desc">Classic, knotless, or boho — any size, installed to protect your edges and last for weeks.</div>
+      <div class="svc-price">From $120</div>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-num">ii.</div>
+      <div class="svc-name">Cornrows</div>
+      <div class="svc-desc">Feed-in, flat, or geometric — straight back, curved, or custom tribal designs.</div>
+      <div class="svc-price">From $60</div>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-num">iii.</div>
+      <div class="svc-name">Senegalese Twists</div>
+      <div class="svc-desc">Smooth, rope-like twists from West African tradition. Lightweight and long-lasting.</div>
+      <div class="svc-price">From $130</div>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-num">iv.</div>
+      <div class="svc-name">Faux Locs</div>
+      <div class="svc-desc">Distressed, goddess, or butterfly faux locs — the loc look with full flexibility.</div>
+      <div class="svc-price">From $150</div>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-num">v.</div>
+      <div class="svc-name">Fulani Braids</div>
+      <div class="svc-desc">Signature West African style — cornrows, loose braids, beads, and accessories.</div>
+      <div class="svc-price">From $100</div>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-num">vi.</div>
+      <div class="svc-name">Children's Styles</div>
+      <div class="svc-desc">Gentle, patient care for little ones — cornrows and twists for active kids.</div>
+      <div class="svc-price">From $45</div>
+      <div class="svc-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-top">
+    <div>
+      <span class="s-label">Gallery</span>
+      <h2 class="s-h">Our <em>work</em></h2>
+    </div>
+    <label class="upload-lbl" for="photoInput">
+      + Add Photos
+      <input type="file" id="photoInput" accept="image/*" multiple hidden/>
+    </label>
+  </div>
+  <div class="gallery-filters">
+    <button class="gf active" data-f="all">All</button>
+    <button class="gf" data-f="box">Box Braids</button>
+    <button class="gf" data-f="cornrows">Cornrows</button>
+    <button class="gf" data-f="twists">Twists</button>
+    <button class="gf" data-f="locs">Locs</button>
+    <button class="gf" data-f="fulani">Fulani</button>
+    <button class="gf" data-f="kids">Kids</button>
+  </div>
+  <div class="gallery-masonry" id="galleryGrid">
+    <div class="g-card" data-cat="box" data-label="Knotless Box Braids">
+      <div class="g-ph t1">🪢</div>
+      <div class="g-overlay"><span class="g-lbl">Knotless Box Braids</span></div>
+    </div>
+    <div class="g-card" data-cat="cornrows" data-label="Tribal Cornrows">
+      <div class="g-ph t4">〰️</div>
+      <div class="g-overlay"><span class="g-lbl">Tribal Cornrows</span></div>
+    </div>
+    <div class="g-card" data-cat="twists" data-label="Senegalese Twists">
+      <div class="g-ph t2">🌀</div>
+      <div class="g-overlay"><span class="g-lbl">Senegalese Twists</span></div>
+    </div>
+    <div class="g-card" data-cat="locs" data-label="Goddess Locs">
+      <div class="g-ph t5">🌾</div>
+      <div class="g-overlay"><span class="g-lbl">Goddess Locs</span></div>
+    </div>
+    <div class="g-card" data-cat="fulani" data-label="Fulani Braids">
+      <div class="g-ph t3">✨</div>
+      <div class="g-overlay"><span class="g-lbl">Fulani Braids</span></div>
+    </div>
+    <div class="g-card" data-cat="kids" data-label="Children's Style">
+      <div class="g-ph t1" style="background:linear-gradient(150deg,#D4E4D0,#6A9860)">👧</div>
+      <div class="g-overlay"><span class="g-lbl">Children's Style</span></div>
+    </div>
+    <div class="g-card" data-cat="box" data-label="Jumbo Box Braids">
+      <div class="g-ph t2" style="background:linear-gradient(150deg,#E4D0D8,#986878)">🪢</div>
+      <div class="g-overlay"><span class="g-lbl">Jumbo Box Braids</span></div>
+    </div>
+    <div class="g-card" data-cat="cornrows" data-label="Feed-In Cornrows">
+      <div class="g-ph t4" style="background:linear-gradient(150deg,#C8D4CC,#506858)">〰️</div>
+      <div class="g-overlay"><span class="g-lbl">Feed-In Cornrows</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-x" id="lbX">✕</button>
+  <button class="lb-arr" id="lbPrev">‹</button>
+  <button class="lb-arr" id="lbNext">›</button>
+  <div class="lb-wrap"><img id="lbImg" src="" alt=""/></div>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<!-- PROCESS -->
+<section class="process">
+  <span class="s-label">How it works</span>
+  <h2 class="s-h" style="color:var(--bone)">Your <em>experience</em></h2>
+  <div class="process-steps">
+    <div class="step">
+      <span class="step-n">One</span>
+      <div class="step-title">Book Your Visit</div>
+      <p class="step-body">Call, text, or use the form below. We'll confirm a time and talk through what you have in mind.</p>
+    </div>
+    <div class="step">
+      <span class="step-n">Two</span>
+      <div class="step-title">Consultation</div>
+      <p class="step-body">We discuss length, size, color, and extensions — and advise on what works best for your hair type.</p>
+    </div>
+    <div class="step">
+      <span class="step-n">Three</span>
+      <div class="step-title">The Install</div>
+      <p class="step-body">Relax while our stylists work. Proper tension, clean parts, and a finish that lasts.</p>
+    </div>
+    <div class="step">
+      <span class="step-n">Four</span>
+      <div class="step-title">Aftercare</div>
+      <p class="step-body">Leave with everything you need to maintain your style — routines, products, and tips included.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <span class="s-label">Client love</span>
+  <h2 class="s-h">What people <em>say</em></h2>
+  <div class="testi-grid">
+    <div class="tcard">
+      <div class="tcard-stars">★★★★★</div>
+      <p class="tcard-text">"Fallou's is the only place I trust with my hair. The knotless braids lasted two months and still looked fresh. The atmosphere is warm and the results are always stunning."</p>
+      <span class="tcard-author">— Amara D., Oak Park</span>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">★★★★★</div>
+      <p class="tcard-text">"I brought my daughter in for the first time and was blown away by the patience and gentleness. She sat still the whole time — unheard of! The cornrows were gorgeous."</p>
+      <span class="tcard-author">— Keisha T., Southfield</span>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">★★★★★</div>
+      <p class="tcard-text">"Three years and counting. The Senegalese twists are my signature look now. Everyone always asks who does my hair. Quality, speed, and care — they have it all."</p>
+      <span class="tcard-author">— Nadia F., Detroit</span>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-left">
+    <span class="s-label">Book an appointment</span>
+    <h2 class="s-h">Let's get you <em>in.</em></h2>
+    <p class="booking-sub">Choose the easiest way to reach us. We confirm within a few hours and love walk-ins too.</p>
+    <div class="bk-btns">
+      <a href="tel:+12483361670" class="bk-btn bk-call" id="callBtn">
+        <div class="bk-icon">📞</div>
+        <div class="bk-text">
+          <span class="bk-title">Call Us Directly</span>
+          <span class="bk-hint" id="callHint">(248) 336-1670 · Fastest response</span>
+        </div>
+      </a>
+      <a href="#" class="bk-btn bk-cal" id="gcalBtn">
+        <div class="bk-icon">📅</div>
+        <div class="bk-text">
+          <span class="bk-title">Add to Google Calendar</span>
+          <span class="bk-hint">Opens with your appointment pre-filled</span>
+        </div>
+      </a>
+      <a href="sms:+12483361670?body=Hi%20Fallou's!%20I'd%20like%20to%20book%20an%20appointment." class="bk-btn bk-sms" id="smsBtn">
+        <div class="bk-icon">💬</div>
+        <div class="bk-text">
+          <span class="bk-title">Send a Text</span>
+          <span class="bk-hint">Opens your messages app</span>
+        </div>
+      </a>
+    </div>
+    <div class="hours-wrap" id="hoursWrap">
+      <h4>Hours of Operation</h4>
+      <div class="h-row" data-day="weekday"><span class="h-day">Monday – Friday</span><span class="h-time">9:00 AM – 7:00 PM</span></div>
+      <div class="h-row" data-day="sat"><span class="h-day">Saturday</span><span class="h-time">8:00 AM – 6:00 PM</span></div>
+      <div class="h-row" data-day="sun"><span class="h-day">Sunday</span><span class="h-time">10:00 AM – 4:00 PM</span></div>
+      <div class="h-row" data-day="walkins"><span class="h-day" style="color:var(--rose)">Walk-ins</span><span class="h-time" style="color:var(--rose)" id="walkinsTime">Always Welcome</span></div>
+    </div>
+  </div>
+
+  <div class="booking-form">
+    <span class="s-label">Or send a request</span>
+    <h3 class="s-h" style="font-size:2rem">Appointment <em>request</em></h3>
+    <div class="fg">
+      <div class="ff"><label class="fl">First Name</label><input type="text" id="fName" placeholder="Amara"/></div>
+      <div class="ff"><label class="fl">Last Name</label><input type="text" id="fLast" placeholder="Johnson"/></div>
+      <div class="ff"><label class="fl">Phone</label><input type="tel" id="fPhone" placeholder="(248) 000-0000"/></div>
+      <div class="ff"><label class="fl">Preferred Date</label><input type="date" id="fDate"/></div>
+      <div class="ff"><label class="fl">Time</label>
+        <select id="fTime">
+          <option value="">Select a time…</option>
+          <option>9:00 AM</option><option>10:00 AM</option><option>11:00 AM</option>
+          <option>12:00 PM</option><option>1:00 PM</option><option>2:00 PM</option>
+          <option>3:00 PM</option><option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option>
+        </select>
+      </div>
+      <div class="ff"><label class="fl">Service</label>
+        <select id="fService">
+          <option value="">Choose a service…</option>
+          <option>Box Braids</option><option>Knotless Box Braids</option>
+          <option>Cornrows</option><option>Senegalese Twists</option>
+          <option>Faux Locs</option><option>Fulani Braids</option>
+          <option>Children's Style</option><option>Other / Not sure</option>
+        </select>
+      </div>
+      <div class="ff full"><label class="fl">Notes</label>
+        <textarea id="fNotes" placeholder="Hair length, reference photo description, any special requests…"></textarea>
+      </div>
+    </div>
+    <button class="f-submit" id="fSubmit">Send Request</button>
+    <p class="f-note">We'll confirm by phone or text within a few hours.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-brand">Fallou's African Hair Braiding</span>
+  <span class="foot-copy">© 2026 fallousafricanhairbraiding.com · Oak Park, MI · Black-Owned</span>
+  <div class="foot-links">
+    <a href="#" id="igLink">Instagram</a>
+    <a href="#" id="fbLink">Facebook</a>
+    <a href="#" id="ttLink">TikTok</a>
+    <a href="admin.html">Admin</a>
+  </div>
+</footer>
+
+<!-- ── CHAT WIDGET ── -->
+<style>
+.chat-launcher{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:400;
+  width:60px;height:60px;border-radius:50%;border:none;
+  background:var(--ink);color:var(--bone);font-size:1.4rem;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 30px -8px rgba(26,22,20,0.4);cursor:pointer;
+  transition:transform .2s, background .2s;
+}
+.chat-launcher:hover{transform:scale(1.06);background:var(--char)}
+.chat-launcher .badge{
+  position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;
+  background:var(--rose);border:2px solid var(--bone);
+}
+.chat-panel{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:401;
+  width:min(370px,calc(100vw - 2rem));height:min(560px,calc(100vh - 3rem));
+  background:var(--white);border-radius:22px;overflow:hidden;
+  display:none;flex-direction:column;
+  box-shadow:0 30px 70px -20px rgba(26,22,20,0.35);
+  border:1px solid var(--line);
+}
+.chat-panel.open{display:flex}
+.chat-head{
+  background:var(--ink);color:var(--bone);padding:1.1rem 1.2rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.chat-head-info{display:flex;flex-direction:column;gap:0.1rem}
+.chat-head-name{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:1.02rem}
+.chat-head-sub{font-size:0.7rem;color:rgba(250,248,245,0.55);display:flex;align-items:center;gap:0.35rem}
+.chat-head-sub::before{content:'';width:6px;height:6px;border-radius:50%;background:#5C8A6B;display:inline-block}
+.chat-close{background:none;border:none;color:rgba(250,248,245,0.7);font-size:1.1rem;cursor:pointer;padding:0.3rem}
+.chat-close:hover{color:var(--bone)}
+.chat-body{flex:1;overflow-y:auto;padding:1.1rem;display:flex;flex-direction:column;gap:0.7rem;background:var(--bone)}
+.chat-msg{max-width:84%;padding:0.65rem 0.9rem;border-radius:16px;font-size:0.86rem;line-height:1.5}
+.chat-msg.bot{align-self:flex-start;background:var(--white);border:1px solid var(--line);border-bottom-left-radius:4px}
+.chat-msg.user{align-self:flex-end;background:var(--ink);color:var(--bone);border-bottom-right-radius:4px}
+.chat-msg.typing{display:flex;gap:4px;align-items:center;padding:0.8rem 1rem}
+.chat-msg.typing span{width:6px;height:6px;border-radius:50%;background:var(--mid);animation:typingDot 1.1s infinite}
+.chat-msg.typing span:nth-child(2){animation-delay:.15s}
+.chat-msg.typing span:nth-child(3){animation-delay:.3s}
+@keyframes typingDot{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+.chat-chips{display:flex;flex-wrap:wrap;gap:0.4rem;padding:0 1.1rem 0.8rem;background:var(--bone)}
+.chat-chip{
+  font-size:0.74rem;padding:0.45rem 0.85rem;border-radius:100px;
+  border:1px solid var(--line);background:var(--white);color:var(--mid);
+  cursor:pointer;transition:all .15s;
+}
+.chat-chip:hover{border-color:var(--rose);color:var(--ink)}
+.chat-book-btn{
+  align-self:flex-start;display:inline-flex;align-items:center;gap:0.4rem;
+  background:var(--rose);color:var(--white);border:none;border-radius:100px;
+  padding:0.6rem 1rem;font-size:0.8rem;font-weight:600;margin-top:0.3rem;cursor:pointer;
+  transition:background .2s;
+}
+.chat-book-btn:hover{background:var(--mocha)}
+.chat-foot{
+  padding:0.8rem;border-top:1px solid var(--line);background:var(--white);
+  display:flex;gap:0.5rem;align-items:center;
+}
+.chat-input{
+  flex:1;border:1.5px solid var(--line);border-radius:100px;padding:0.65rem 1rem;
+  font-size:0.85rem;background:var(--bone);color:var(--ink);
+}
+.chat-input:focus{outline:none;border-color:var(--rose)}
+.chat-send{
+  width:38px;height:38px;border-radius:50%;border:none;background:var(--ink);
+  color:var(--bone);font-size:1rem;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  transition:background .2s;
+}
+.chat-send:hover{background:var(--char)}
+.chat-send:disabled{opacity:0.4;cursor:default}
+@media (max-width:480px){
+  .chat-panel{right:1rem;bottom:1rem;width:calc(100vw - 2rem)}
+  .chat-launcher{right:1rem;bottom:1rem}
+}
+</style>
+
+<button class="chat-launcher" id="chatLauncher" aria-label="Open chat">
+  💬<span class="badge"></span>
+</button>
+
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head">
+    <div class="chat-head-info">
+      <span class="chat-head-name">Fallou's</span>
+      <span class="chat-head-sub">Usually replies instantly</span>
+    </div>
+    <button class="chat-close" id="chatClose">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-chips" id="chatChips">
+    <button class="chat-chip" data-q="What services do you offer and how much do they cost?">Services & pricing</button>
+    <button class="chat-chip" data-q="What are your hours?">Hours</button>
+    <button class="chat-chip" data-q="I'd like to book an appointment.">Book an appointment</button>
+  </div>
+  <div class="chat-foot">
+    <input type="text" class="chat-input" id="chatInput" placeholder="Ask a question…" autocomplete="off"/>
+    <button class="chat-send" id="chatSend">➤</button>
+  </div>
+</div>
+
+<script>
+// ── CHAT WIDGET ──
+(function(){
+  const launcher = document.getElementById('chatLauncher');
+  const panel = document.getElementById('chatPanel');
+  const closeBtn = document.getElementById('chatClose');
+  const body = document.getElementById('chatBody');
+  const chips = document.getElementById('chatChips');
+  const input = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('chatSend');
+
+  let history = [];
+  let opened = false;
+
+  function addMsg(role, text){
+    const div = document.createElement('div');
+    div.className = 'chat-msg ' + (role==='user' ? 'user' : 'bot');
+    div.textContent = text;
+    body.appendChild(div);
+    body.scrollTop = body.scrollHeight;
+    return div;
+  }
+
+  function addBookingButton(info){
+    const phone = (typeof SITE_PHONE_E164 !== 'undefined') ? SITE_PHONE_E164 : '+12483361670';
+    const msg = `New appointment request:\nName: ${info.name||''}\nPhone: ${info.phone||''}\nService: ${info.service||'Not specified'}\nPreferred time: ${info.when||'Flexible'}`;
+    const btn = document.createElement('button');
+    btn.className = 'chat-book-btn';
+    btn.innerHTML = '💬 Send this request by text';
+    btn.onclick = () => window.open(`sms:${phone}?body=${encodeURIComponent(msg)}`);
+    body.appendChild(btn);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function showTyping(){
+    const div = document.createElement('div');
+    div.className = 'chat-msg bot typing';
+    div.id = 'typingIndicator';
+    div.innerHTML = '<span></span><span></span><span></span>';
+    body.appendChild(div);
+    body.scrollTop = body.scrollHeight;
+  }
+  function hideTyping(){
+    const t = document.getElementById('typingIndicator');
+    if(t) t.remove();
+  }
+
+  async function sendMessage(text){
+    if(!text.trim()) return;
+    addMsg('user', text);
+    history.push({ role:'user', content: text });
+    input.value='';
+    sendBtn.disabled = true;
+    showTyping();
+
+    try{
+      const res = await fetch('/api/chat', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ messages: history })
+      });
+      const data = await res.json();
+      hideTyping();
+
+      if(!res.ok || !data.reply){
+        addMsg('bot', "Sorry, I'm having trouble connecting right now — please call or text us at (248) 336-1670 and we'll help directly.");
+        sendBtn.disabled = false;
+        return;
+      }
+
+      let reply = data.reply;
+      let booking = null;
+      const marker = reply.indexOf('::BOOKING::');
+      if(marker !== -1){
+        const jsonPart = reply.slice(marker + '::BOOKING::'.length).trim();
+        reply = reply.slice(0, marker).trim();
+        try{ booking = JSON.parse(jsonPart); }catch(e){ booking = null; }
+      }
+
+      if(reply) addMsg('bot', reply);
+      history.push({ role:'assistant', content: data.reply });
+      if(booking) addBookingButton(booking);
+
+    }catch(err){
+      hideTyping();
+      addMsg('bot', "Sorry, something went wrong. Please call or text us at (248) 336-1670.");
+    }
+    sendBtn.disabled = false;
+  }
+
+  function openChat(){
+    panel.classList.add('open');
+    if(!opened){
+      opened = true;
+      addMsg('bot', "Hi! I'm here to help with questions about Fallou's African Hair Braiding — services, pricing, hours, or booking an appointment. What can I help with?");
+    }
+    input.focus();
+  }
+
+  launcher.addEventListener('click', openChat);
+  closeBtn.addEventListener('click', ()=> panel.classList.remove('open'));
+  sendBtn.addEventListener('click', ()=> sendMessage(input.value));
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter') sendMessage(input.value); });
+  chips.querySelectorAll('.chat-chip').forEach(chip=>{
+    chip.addEventListener('click', ()=> sendMessage(chip.dataset.q));
+  });
+})();
+</script>
+
+<script>
+// ── ADMIN SYNC: settings ──
+const DEFAULT_SETTINGS = {
+  phone: '(248) 336-1670',
+  phoneE164: '+12483361670',
+  email: 'hello@fallousafricanhairbraiding.com',
+  hours: { weekday: '9:00 AM – 7:00 PM', sat: '8:00 AM – 6:00 PM', sun: '10:00 AM – 4:00 PM', walkins: 'Always Welcome' },
+  social: { instagram: '', facebook: '', tiktok: '' }
+};
+function loadSettings(){
+  try{
+    const raw = localStorage.getItem('fallous_settings');
+    if(!raw) return DEFAULT_SETTINGS;
+    const saved = JSON.parse(raw);
+    return { ...DEFAULT_SETTINGS, ...saved, hours: { ...DEFAULT_SETTINGS.hours, ...(saved.hours||{}) }, social: { ...DEFAULT_SETTINGS.social, ...(saved.social||{}) } };
+  }catch(e){ return DEFAULT_SETTINGS; }
+}
+const SETTINGS = loadSettings();
+const SITE_PHONE = SETTINGS.phone;
+const SITE_PHONE_E164 = SETTINGS.phoneE164;
+
+function applySettings(){
+  // Phone — call button + hint + sms hrefs
+  const callBtn = document.getElementById('callBtn');
+  const callHint = document.getElementById('callHint');
+  const smsBtn = document.getElementById('smsBtn');
+  if(callBtn) callBtn.href = `tel:${SITE_PHONE_E164}`;
+  if(callHint) callHint.textContent = `${SITE_PHONE} · Fastest response`;
+  if(smsBtn) smsBtn.href = `sms:${SITE_PHONE_E164}?body=${encodeURIComponent("Hi Fallou's! I'd like to book an appointment.")}`;
+
+  // Hours
+  const h = SETTINGS.hours;
+  document.querySelectorAll('#hoursWrap .h-row').forEach(row=>{
+    const key = row.dataset.day;
+    const timeEl = row.querySelector('.h-time');
+    if(key && h[key] && timeEl) timeEl.textContent = h[key];
+  });
+
+  // Social links — hide any with no URL set
+  const socialMap = { igLink: SETTINGS.social.instagram, fbLink: SETTINGS.social.facebook, ttLink: SETTINGS.social.tiktok };
+  Object.entries(socialMap).forEach(([id,url])=>{
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(url){ el.href = url; el.target='_blank'; el.rel='noopener'; el.style.display=''; }
+    else { el.style.display = 'none'; }
+  });
+}
+applySettings();
+
+// ── ADMIN SYNC: gallery photos uploaded via admin.html ──
+function loadAdminPhotos(){
+  try{ return JSON.parse(localStorage.getItem('fallous_gallery') || '[]'); }
+  catch(e){ return []; }
+}
+function renderAdminPhotos(){
+  const grid = document.getElementById('galleryGrid');
+  if(!grid) return;
+  // Remove previously-rendered admin cards before re-rendering (keeps in sync after admin edits)
+  grid.querySelectorAll('.g-card[data-admin-id]').forEach(c=>c.remove());
+  const photos = loadAdminPhotos();
+  photos.slice().reverse().forEach(p=>{
+    const card = document.createElement('div');
+    card.className = 'g-card';
+    card.dataset.cat = p.cat || 'all';
+    card.dataset.label = p.label || '';
+    card.dataset.adminId = p.id;
+    card.innerHTML = `<img src="${p.src}" alt="${p.label||''}" style="width:100%;display:block"/>
+      <div class="g-overlay"><span class="g-lbl">${p.label||''}${p.featured ? ' ★' : ''}</span></div>
+      <button class="g-del" title="Remove">✕</button>`;
+    grid.prepend(card);
+  });
+  // Re-wire interactions for all cards (admin + static) every time we render
+  document.querySelectorAll('.g-card').forEach(card=>{
+    card.querySelector('.g-del').onclick = e => {
+      e.stopPropagation();
+      const adminId = card.dataset.adminId;
+      if(adminId){
+        const remaining = loadAdminPhotos().filter(p=>String(p.id)!==String(adminId));
+        localStorage.setItem('fallous_gallery', JSON.stringify(remaining));
+      }
+      card.remove();
+    };
+    card.onclick = e => { if(!e.target.closest('.g-del')) openLb(card.querySelector('img').src, card.dataset.label); };
+  });
+  // Re-apply active filter
+  const activeFilter = document.querySelector('.gf.active')?.dataset.f || 'all';
+  document.querySelectorAll('.g-card').forEach(c=>{
+    c.style.display = (activeFilter==='all'||c.dataset.cat===activeFilter) ? 'block' : 'none';
+  });
+}
+renderAdminPhotos();
+// Pick up admin changes made in another tab without needing a refresh
+window.addEventListener('storage', e=>{
+  if(e.key==='fallous_gallery') renderAdminPhotos();
+  if(e.key==='fallous_settings'){ Object.assign(SETTINGS, loadSettings()); applySettings(); }
+});
+
+// ── GALLERY ──
+const grid = document.getElementById('galleryGrid');
+const photoInput = document.getElementById('photoInput');
+let lbIdx = 0;
+
+// Upload
+photoInput.addEventListener('change', e => {
+  Array.from(e.target.files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const card = document.createElement('div');
+      card.className = 'g-card';
+      card.dataset.cat = 'all';
+      card.dataset.label = file.name.replace(/\.[^.]+$/,'').replace(/[-_]/g,' ');
+      card.innerHTML = `<img src="${ev.target.result}" alt="${card.dataset.label}" style="width:100%;display:block"/>
+        <div class="g-overlay"><span class="g-lbl">${card.dataset.label}</span></div>
+        <button class="g-del" title="Remove">✕</button>`;
+      grid.prepend(card);
+      card.querySelector('.g-del').onclick = e => { e.stopPropagation(); card.remove(); };
+      card.addEventListener('click', e => { if(!e.target.closest('.g-del')) openLb(card.querySelector('img').src, card.dataset.label); });
+    };
+    reader.readAsDataURL(file);
+  });
+  photoInput.value='';
+});
+
+// Drag-drop on section
+document.getElementById('gallery').addEventListener('dragover', e=>e.preventDefault());
+document.getElementById('gallery').addEventListener('drop', e=>{
+  e.preventDefault();
+  const dt = new DataTransfer();
+  Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/')).forEach(f=>dt.items.add(f));
+  photoInput.files = dt.files;
+  photoInput.dispatchEvent(new Event('change'));
+});
+
+// Filter
+document.querySelectorAll('.gf').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.gf').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.f;
+    document.querySelectorAll('.g-card').forEach(c=>{
+      c.style.display = (f==='all'||c.dataset.cat===f) ? 'block' : 'none';
+    });
+  });
+});
+
+// Lightbox
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lbImg');
+const lbCap = document.getElementById('lbCap');
+function openLb(src, label){
+  lbImg.src=src; lbCap.textContent=label||'';
+  lb.classList.add('open'); document.body.style.overflow='hidden';
+  lbIdx=[...document.querySelectorAll('.g-card img')].findIndex(i=>i.src===src);
+}
+document.getElementById('lbX').onclick=()=>{lb.classList.remove('open');document.body.style.overflow=''};
+lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('open');document.body.style.overflow=''}});
+document.getElementById('lbPrev').onclick=()=>{
+  const imgs=[...document.querySelectorAll('.g-card img')];
+  if(!imgs.length)return; lbIdx=(lbIdx-1+imgs.length)%imgs.length;
+  lbImg.src=imgs[lbIdx].src; lbCap.textContent=imgs[lbIdx].closest('.g-card')?.dataset.label||'';
+};
+document.getElementById('lbNext').onclick=()=>{
+  const imgs=[...document.querySelectorAll('.g-card img')];
+  if(!imgs.length)return; lbIdx=(lbIdx+1)%imgs.length;
+  lbImg.src=imgs[lbIdx].src; lbCap.textContent=imgs[lbIdx].closest('.g-card')?.dataset.label||'';
+};
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape'){lb.classList.remove('open');document.body.style.overflow=''}
+  if(e.key==='ArrowLeft') document.getElementById('lbPrev').click();
+  if(e.key==='ArrowRight') document.getElementById('lbNext').click();
+});
+
+// ── GOOGLE CALENDAR ──
+document.getElementById('gcalBtn').addEventListener('click',function(e){
+  e.preventDefault();
+  const name=document.getElementById('fName').value.trim();
+  const date=document.getElementById('fDate').value;
+  const time=document.getElementById('fTime').value;
+  const svc=document.getElementById('fService').value;
+  const title=encodeURIComponent("Appointment at Fallou's African Hair Braiding"+(svc?' — '+svc:''));
+  const details=encodeURIComponent(`Fallou's African Hair Braiding, Oak Park MI\nPhone: ${SITE_PHONE}`+(name?'\nClient: '+name:''));
+  const loc=encodeURIComponent("Fallou's African Hair Braiding, Oak Park, MI");
+  let s,en;
+  if(date){
+    const d=date.replace(/-/g,'');
+    let h=10,m=0;
+    if(time){const mx=time.match(/(\d+):(\d+)\s*(AM|PM)/i);if(mx){h=parseInt(mx[1]);m=parseInt(mx[2]);if(mx[3].toUpperCase()==='PM'&&h!==12)h+=12;if(mx[3].toUpperCase()==='AM'&&h===12)h=0;}}
+    s=`${d}T${String(h).padStart(2,'0')}${String(m).padStart(2,'0')}00`;
+    en=`${d}T${String(h+3).padStart(2,'0')}${String(m).padStart(2,'0')}00`;
+  }else{
+    const t=new Date();t.setDate(t.getDate()+1);
+    const dd=`${t.getFullYear()}${String(t.getMonth()+1).padStart(2,'0')}${String(t.getDate()).padStart(2,'0')}`;
+    s=`${dd}T100000`;en=`${dd}T130000`;
+  }
+  window.open(`https://calendar.google.com/calendar/r/eventedit?text=${title}&dates=${s}/${en}&details=${details}&location=${loc}`,'_blank');
+});
+
+// ── FORM SUBMIT ──
+document.getElementById('fSubmit').addEventListener('click',function(){
+  const name=document.getElementById('fName').value.trim();
+  const phone=document.getElementById('fPhone').value.trim();
+  const svc=document.getElementById('fService').value;
+  const date=document.getElementById('fDate').value;
+  if(!name||!phone){alert('Please enter your name and phone number.');return;}
+  const msg=`New appointment request:\nName: ${name}\nPhone: ${phone}\nService: ${svc||'Not specified'}\nDate: ${date||'Flexible'}`;
+  if(confirm(`✅ Thank you, ${name}! We'll confirm within a few hours.\n\nWant to also send us a text right now?`)){
+    window.open(`sms:${SITE_PHONE_E164}?body=${encodeURIComponent(msg)}`);
+  }
+});
+</script>
+</body>
+</html>
+
