@@ -652,7 +652,60 @@ footer{
   </div>
 </section>
 
-<!-- LIGHTBOX -->
+<!-- TIKTOK -->
+<section class="tiktok-section" id="tiktok">
+  <div class="tiktok-top">
+    <div>
+      <span class="s-label">Follow along</span>
+      <h2 class="s-h">Latest <em>on TikTok</em></h2>
+    </div>
+    <a href="https://www.tiktok.com/@fallous_oakparkmichigan" target="_blank" rel="noopener" class="btn-secondary">@fallous_oakparkmichigan →</a>
+  </div>
+  <div class="tiktok-grid" id="tiktokGrid">
+    <p class="tiktok-empty" id="tiktokEmpty">Videos coming soon — follow us on TikTok in the meantime.</p>
+  </div>
+</section>
+
+<style>
+.tiktok-section{padding:6rem 5vw;background:var(--white)}
+.tiktok-top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem}
+.tiktok-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+.tiktok-grid blockquote.tiktok-embed{margin:0 !important;max-width:100% !important;min-width:0 !important}
+.tiktok-empty{color:var(--mid);font-size:0.9rem;grid-column:1/-1}
+@media (max-width:600px){.tiktok-section{padding:4rem 6vw}}
+</style>
+
+<script>
+(async function(){
+  try{
+    const res = await fetch('/videos/videos.json', { cache:'no-store' });
+    if(!res.ok) return;
+    const urls = await res.json();
+    if(!Array.isArray(urls) || !urls.length) return;
+
+    const grid = document.getElementById('tiktokGrid');
+    const empty = document.getElementById('tiktokEmpty');
+    if(empty) empty.remove();
+
+    urls.forEach(url=>{
+      const bq = document.createElement('blockquote');
+      bq.className = 'tiktok-embed';
+      bq.setAttribute('cite', url);
+      bq.setAttribute('data-video-id', (url.match(/video\/(\d+)/)||[])[1] || '');
+      bq.style.maxWidth = '100%';
+      bq.innerHTML = '<section></section>';
+      grid.appendChild(bq);
+    });
+
+    const script = document.createElement('script');
+    script.src = 'https://www.tiktok.com/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+  }catch(e){ /* videos.json not present yet — fine, shows the empty state */ }
+})();
+</script>
+
+
 <div class="lb" id="lb">
   <button class="lb-x" id="lbX">✕</button>
   <button class="lb-arr" id="lbPrev">‹</button>
@@ -741,6 +794,12 @@ footer{
         </div>
       </a>
     </div>
+    <div class="address-wrap" id="addressWrap" style="margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--line)">
+      <h4 style="font-family:'Fraunces',serif;font-weight:400;font-size:1.05rem;margin-bottom:0.6rem">Find Us</h4>
+      <a href="https://maps.google.com/?q=13721+W+Nine+Mile+Rd,+Oak+Park,+MI+48237" target="_blank" rel="noopener" style="font-size:0.88rem;color:var(--mid);text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;transition:color .2s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color='var(--mid)'">
+        📍 13721 W Nine Mile Rd, Oak Park, MI 48237
+      </a>
+    </div>
     <div class="hours-wrap" id="hoursWrap">
       <h4>Hours of Operation</h4>
       <div class="h-row" data-day="weekday"><span class="h-day">Monday – Friday</span><span class="h-time">9:00 AM – 7:00 PM</span></div>
@@ -787,7 +846,7 @@ footer{
 <!-- FOOTER -->
 <footer>
   <span class="foot-brand">Fallou's African Hair Braiding</span>
-  <span class="foot-copy">© 2026 fallousafricanhairbraiding.com · Oak Park, MI · Black-Owned</span>
+  <span class="foot-copy">© 2026 fallousafricanhairbraiding.com · 13721 W Nine Mile Rd, Oak Park, MI 48237 · Black-Owned</span>
   <div class="foot-links">
     <a href="#" id="igLink">Instagram</a>
     <a href="#" id="fbLink">Facebook</a>
@@ -1015,7 +1074,7 @@ const DEFAULT_SETTINGS = {
   phoneE164: '+12483361670',
   email: 'hello@fallousafricanhairbraiding.com',
   hours: { weekday: '9:00 AM – 7:00 PM', sat: '8:00 AM – 6:00 PM', sun: '10:00 AM – 4:00 PM', walkins: 'Always Welcome' },
-  social: { instagram: '', facebook: '', tiktok: '' }
+  social: { instagram: '', facebook: '', tiktok: 'https://www.tiktok.com/@fallous_oakparkmichigan' }
 };
 function loadSettings(){
   try{
@@ -1098,6 +1157,34 @@ function renderAdminPhotos(){
     c.style.display = (activeFilter==='all'||c.dataset.cat===activeFilter) ? 'block' : 'none';
   });
 }
+
+// ── REPO PHOTOS (committed to /images/gallery/, same for every visitor/device) ──
+async function renderRepoPhotos(){
+  const grid = document.getElementById('galleryGrid');
+  if(!grid) return;
+  try{
+    const res = await fetch('/images/gallery/gallery.json', { cache: 'no-store' });
+    if(!res.ok) return;
+    const items = await res.json();
+    if(!Array.isArray(items) || !items.length) return;
+    items.slice().reverse().forEach(item=>{
+      const card = document.createElement('div');
+      card.className = 'g-card';
+      card.dataset.cat = item.cat || 'all';
+      card.dataset.label = item.label || '';
+      card.dataset.repoPhoto = '1';
+      card.innerHTML = `<img src="/images/gallery/${item.file}" alt="${item.label||''}" style="width:100%;display:block" loading="lazy"/>
+        <div class="g-overlay"><span class="g-lbl">${item.label||''}</span></div>`;
+      card.onclick = () => openLb(card.querySelector('img').src, card.dataset.label);
+      grid.prepend(card);
+    });
+    const activeFilter = document.querySelector('.gf.active')?.dataset.f || 'all';
+    document.querySelectorAll('.g-card').forEach(c=>{
+      c.style.display = (activeFilter==='all'||c.dataset.cat===activeFilter) ? 'block' : 'none';
+    });
+  }catch(e){ /* manifest not present yet — fine, gallery just shows other sources */ }
+}
+renderRepoPhotos();
 renderAdminPhotos();
 // Pick up admin changes made in another tab without needing a refresh
 window.addEventListener('storage', e=>{
@@ -1189,8 +1276,8 @@ document.getElementById('gcalBtn').addEventListener('click',function(e){
   const time=document.getElementById('fTime').value;
   const svc=document.getElementById('fService').value;
   const title=encodeURIComponent("Appointment at Fallou's African Hair Braiding"+(svc?' — '+svc:''));
-  const details=encodeURIComponent(`Fallou's African Hair Braiding, Oak Park MI\nPhone: ${SITE_PHONE}`+(name?'\nClient: '+name:''));
-  const loc=encodeURIComponent("Fallou's African Hair Braiding, Oak Park, MI");
+  const details=encodeURIComponent(`Fallou's African Hair Braiding, 13721 W Nine Mile Rd, Oak Park, MI 48237\nPhone: ${SITE_PHONE}`+(name?'\nClient: '+name:''));
+  const loc=encodeURIComponent("13721 W Nine Mile Rd, Oak Park, MI 48237");
   let s,en;
   if(date){
     const d=date.replace(/-/g,'');
