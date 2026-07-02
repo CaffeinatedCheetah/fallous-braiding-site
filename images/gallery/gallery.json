@@ -1,1 +1,65 @@
-[]
+[
+  {
+    "src": "images/gallery/box_01.jpg",
+    "alt": "Knotless Box Braids",
+    "category": "box"
+  },
+  {
+    "src": "images/gallery/box_02.jpg",
+    "alt": "Ombre Box Braids with Curly Tips",
+    "category": "box"
+  },
+  {
+    "src": "images/gallery/box_03.jpg",
+    "alt": "Long Box Braids",
+    "category": "box"
+  },
+  {
+    "src": "images/gallery/box_04.jpg",
+    "alt": "Medium Knotless Box Braids",
+    "category": "box"
+  },
+  {
+    "src": "images/gallery/box_05.jpg",
+    "alt": "Small Box Braids",
+    "category": "box"
+  },
+  {
+    "src": "images/gallery/cornrows_01.jpg",
+    "alt": "Curved Cornrows",
+    "category": "cornrows"
+  },
+  {
+    "src": "images/gallery/cornrows_02.jpg",
+    "alt": "Cornrow Bun Updo",
+    "category": "cornrows"
+  },
+  {
+    "src": "images/gallery/cornrows_03.jpg",
+    "alt": "Cornrows into Bun",
+    "category": "cornrows"
+  },
+  {
+    "src": "images/gallery/fulani_01.jpg",
+    "alt": "Fulani Braids",
+    "category": "fulani"
+  },
+  {
+    "src": "images/gallery/twists_placeholder.jpg",
+    "alt": "Senegalese Twists",
+    "category": "twists",
+    "placeholder": true
+  },
+  {
+    "src": "images/gallery/locs_placeholder.jpg",
+    "alt": "Faux Locs",
+    "category": "locs",
+    "placeholder": true
+  },
+  {
+    "src": "images/gallery/kids_placeholder.jpg",
+    "alt": "Kids Braids",
+    "category": "kids",
+    "placeholder": true
+  }
+]
